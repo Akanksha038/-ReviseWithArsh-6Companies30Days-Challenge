@@ -1,0 +1,121 @@
+Find Missing And Repeating
+
+Given an unsorted array Arr of size N of positive integers. One number 'A' from set {1, 2,....,N} is missing and one number 'B' occurs twice in array. Find these two numbers.
+
+Example 1:
+
+Input:
+N = 2
+Arr[] = {2, 2}
+Output: 2 1
+Explanation: Repeating number is 2 and 
+smallest positive missing number is 1.
+Example 2:
+
+Input:
+N = 3
+Arr[] = {1, 3, 3}
+Output: 3 2
+Explanation: Repeating number is 3 and 
+smallest positive missing number is 2.
+Your Task:
+You don't need to read input or print anything. Your task is to complete the function findTwoElement() which takes the array of integers arr and n as parameters and returns an array of integers of size 2 denoting the answer ( The first index contains B and second index contains A.)
+
+Expected Time Complexity: O(N)
+Expected Auxiliary Space: O(1)
+
+Constraints:
+2 ≤ N ≤ 105
+1 ≤ Arr[i] ≤ N
+
+
+Solution:
+
+class Solution
+{
+public:
+    vector<int> findTwoElement(vector<int> arr, int n) 
+    {
+        
+        // 1st approach=>  //   T.C=O(N^2) S.C=(1) 
+        
+        
+        
+//         int i;
+//         int repeating=-1, missing=-1;
+//         for( i=1;i<=n;i++) 
+//         {
+//             int count=0;
+//              for(int j=0;j<=n-1;j++)
+//              {
+//               if(arr[j]==i){
+//               count++;
+//               }
+        
+//              }
+    
+//               if(count==2){
+//               repeating=i;
+        
+//               }
+    
+//              else if(count==0){
+//               missing=i;
+//               }
+//              if(repeating!=-1 && missing!=-1){
+//               break;
+//     }
+// }
+  
+  
+
+
+
+
+// Another approach==> T.C=>O(N), S.C=>O(N)
+
+int hash[n+1]={0};
+for(int i=0;i<n;i++){
+    hash[arr[i]]++;
+}
+
+int repeating=-1, missing=-1;
+for(int i=1;i<=n;i++){
+    if(hash[i]==2){
+        repeating=i;
+    }
+
+     else if(hash[i]==0) missing=i;
+     if(repeating!=-1 && missing!=-1){
+         break;
+     }
+}
+     
+ return {repeating,missing};
+    
+
+//************Third and best approach for interview purpose
+
+// long long SN=(n*(n+1))/2;
+// long long S2N=(n*(n+1)*(2*n+1))/6;
+// long long S=0,S2=0; //S store the sum of elemnts in an given array, and s2n store the square of elements in an given array
+// for(int i=0;i<n;i++)
+// {
+//     S=S+ arr[i];
+//     S2=S2+((long long)arr[i]* (long long)arr[i]); //first we convert int into long long them multiply
+// }
+// long long val1=S-SN;//X-Y
+// long long val2=S2-S2N;//X^2-Y^2;
+// val2=val2/val1;//X+Y
+// long long X=(val1+val2)/2;
+// long long Y=X-val1;
+// return {(int)X,(int)Y};
+
+
+            
+        
+        
+    
+    }    
+    
+};
