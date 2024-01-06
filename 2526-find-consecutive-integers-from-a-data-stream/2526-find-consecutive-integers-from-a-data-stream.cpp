@@ -5,13 +5,13 @@ class DataStream
 {
     private:
     int val=0;
-    int count=0;
+    int counter=0;
     int K=0;
         
 public:
     DataStream(int value, int k) {
         val=value;
-        count=0;
+        counter=0;
         K=k;
         
         
@@ -20,11 +20,11 @@ public:
     bool consec(int num)
     {
         if(num==val){
-            count++;
-            return count>=K;
+            counter++;
+            return counter>=K;
         }
         else{
-            count=0;
+            counter=0;
             return false;
     }
         }
