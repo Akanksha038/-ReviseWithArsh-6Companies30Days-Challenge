@@ -1,7 +1,3 @@
-#include <vector>
-#include <algorithm> // Include algorithm for max function
-
-// Solution class encapsulates the method to determine the last moment.
 class Solution {
 public:
     // getLastMoment calculates the last moment before all ants fall off a plank.
